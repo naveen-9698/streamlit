@@ -3,4 +3,4 @@ pandas
 plotly
 types
 openpyxl
-plotly.express
+
