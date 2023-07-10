@@ -52,3 +52,45 @@ st.dataframe(data[selected_columns].head(num_rows))
 st.write("Distribution of columns")
 
 st.line_chart(data[selected_columns])
+
+df = pd.read_csv(
+    "mortgage_rates.csv")
+df.columns=['Mortgage news daily','Rate', 'Points', 'Change']
+df = df.iloc[:6].drop(df.columns[2], axis=1)
+
+
+# Custom CSS for the table
+css = """
+<style type=\"text/css\">
+table {
+color: #d8d8e0;
+font-family: monospace;
+border-width: 0px;
+border-color: #d8d8e0;
+border-collapse: collapse;
+background-color: #121111;
+}
+table th {
+border-width: 0px;
+padding: 8px;
+border-style: solid;
+border-color: #d8d8e0;
+background-color: #47484a;
+}
+table td {
+border-width: 0px;
+padding: 8px;
+border-style: solid;
+border-color: #d8d8e0;
+background-color: #121111;
+}
+</style>
+"""
+
+st.markdown(css, unsafe_allow_html=True)
+
+st.title('Mortgage Rates Daily')
+
+st.write("Preview of Dataset")
+st.table(df)
+
